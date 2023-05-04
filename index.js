@@ -32,21 +32,22 @@ io.on('connection', (socket) => {
         startRace("race started", { text: "race started" }, (ack) => console.log(ack), 5000);
     });
 
+    function createRoom(event, data, callback, delay) {
+        // Use setTimeout to invoke the socket.emit method after the delay
+        setTimeout(() => socket.emit(event, data, callback), delay);
+    }
+
+    function startRace(event, data, callback, delay) {
+        // Use setTimeout to invoke the socket.emit method after the delay
+        setTimeout(() => socket.emit(event, data, callback), delay);
+    }
+
+
   socket.on('disconnect', () => {
     console.log('A user disconnected.');
-    delete players[socket.id];
   });
 });
 
-function createRoom(event, data, callback, delay) {
-    // Use setTimeout to invoke the socket.emit method after the delay
-    setTimeout(() => socket.emit(event, data, callback), delay);
-}
-
-function startRace(event, data, callback, delay) {
-    // Use setTimeout to invoke the socket.emit method after the delay
-    setTimeout(() => socket.emit(event, data, callback), delay);
-}
 
 server.listen(process.env.PORT || 3000,
 	() => console.log(`Server has started.`));
