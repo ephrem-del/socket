@@ -29,7 +29,7 @@ io.on('connection', (socket) => {
     });
 
     socket.on('start race', () => {
-        startRace("race started", { text: "race started" }, (ack) => console.log(ack), 10000);
+        startRace("race started", { text: "race started" }, (ack) => console.log(ack), 5000);
     });
 
   socket.on('disconnect', () => {
