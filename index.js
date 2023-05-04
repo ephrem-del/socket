@@ -25,21 +25,21 @@ io.on('connection', (socket) => {
 
 
     socket.on('create room', () => {
-        createRoom("room created", { text: "room created" }, (ack) => console.log(ack), 5000);
+        createRoom("room created", { text: "room created" }, 5000);
     });
 
     socket.on('start race', () => {
-        startRace("race started", { text: "race started" }, (ack) => console.log(ack), 5000);
+        startRace("race started", { text: "race started" }, 5000);
     });
 
-    function createRoom(event, data, callback, delay) {
+    function createRoom(event, data, delay) {
         // Use setTimeout to invoke the socket.emit method after the delay
-        setTimeout(() => socket.emit(event, data, callback), delay);
+        setTimeout(() => socket.emit(event, data), delay);
     }
 
     function startRace(event, data, callback, delay) {
         // Use setTimeout to invoke the socket.emit method after the delay
-        setTimeout(() => socket.emit(event, data, callback), delay);
+        setTimeout(() => socket.emit(event, data), delay);
     }
 
 
