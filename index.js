@@ -37,7 +37,7 @@ io.on('connection', (socket) => {
         setTimeout(() => socket.emit(event, data), delay);
     }
 
-    function startRace(event, data, callback, delay) {
+    function startRace(event, data, delay) {
         // Use setTimeout to invoke the socket.emit method after the delay
         setTimeout(() => socket.emit(event, data), delay);
     }
